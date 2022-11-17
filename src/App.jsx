@@ -13,7 +13,7 @@ function App() {
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{title: 'Overview'}}
+          // options={{title: 'Overview'}}
         />
         <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
       </Stack.Navigator>
