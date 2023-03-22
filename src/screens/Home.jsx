@@ -1,21 +1,20 @@
 import React from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 
-function Home({navigation}) {
+export default function Home({navigation}) {
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Home Screen</Text>
-      <Button
-        title="Go to Details"
-        onPress={() =>
-          navigation.navigate('DetailsScreen', {
-            itemId: 86,
-            otherParam: 'anything you want here',
-          })
-        }
-      />
+      <Text>Home</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('CreateAccount')}>
+        <View>
+          <Text>Go to Create Account</Text>
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+        <View>
+          <Text>Go to Login</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 }
-
-export default Home;
