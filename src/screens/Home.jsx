@@ -17,11 +17,12 @@ export default function Home({navigation}) {
   return (
     <AuthLayOut>
       <AuthButton
-        onPress={goToAccount}
+        text="Crate New Account"
         disabled={false}
-        text="Create New Account"></AuthButton>
+        onPress={goToAccount}
+      />
       <TouchableOpacity onPress={goToLogin}>
-        <LoginLink>Login</LoginLink>
+        <LoginLink>Log In</LoginLink>
       </TouchableOpacity>
     </AuthLayOut>
   );

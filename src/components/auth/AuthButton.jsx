@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import {colors, fontWeight} from '../../Theme';
 
 const Button = styled.TouchableOpacity`
   background-color: ${colors.blue};
@@ -10,12 +11,12 @@ const Button = styled.TouchableOpacity`
 `;
 
 const ButtonText = styled.Text`
-  color: ${colors.blue};
+  color: ${colors.white};
   font-weight: ${fontWeight.middle};
-  margin-top: 20px;
+  text-align: center;
 `;
 
-export default function AuthButton({disabled, onPress, text}) {
+export default function AuthButton({onPress, disabled, text}) {
   return (
     <Button disabled={disabled} onPress={onPress}>
       <ButtonText>{text}</ButtonText>

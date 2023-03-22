@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import {colors, fontWeight} from '../../Theme';
 
 const Container = styled.View`
   flex: 1;
