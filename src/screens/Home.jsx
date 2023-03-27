@@ -9,6 +9,7 @@ const LoginLink = styled.Text`
   color: ${colors.blue};
   font-weight: ${fontWeight.middle};
   margin-top: 20px;
+  text-align: center;
 `;
 
 export default function Home({navigation}) {
