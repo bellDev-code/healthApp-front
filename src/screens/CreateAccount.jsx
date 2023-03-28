@@ -106,13 +106,13 @@ export default function CreateAccount() {
             onBlur={onBlur}
             value={value}
             placeholder="password"
-            returnKeyType="next"
+            returnKeyType="done"
             secureTextEntry
             placeholderTextColor={'rgba(255, 255, 255, 0.6)'}
           />
         )}
       />
-      <AuthButton text="Create Account" loading onPress={() => null} />
+      <AuthButton text="Create Account" disabled={true} onPress={() => null} />
     </AuthLayOut>
   );
 }

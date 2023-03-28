@@ -10,6 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@apollo/client": "^3.7.10",
     "@manaflair/redux-batch": "^1.0.0",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-navigation/native": "^6.0.13",
