@@ -7,7 +7,6 @@ import LoggedInNav from './navigators/LoggedInNav';
 
 function App() {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
-  console.log(isLoggedIn, 'isLoggedIn');
   return (
     <ApolloProvider client={client}>
       <NavigationContainer>

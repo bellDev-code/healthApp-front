@@ -17,15 +17,22 @@ const LOGIN_MUTATION = gql`
   }
 `;
 
-export default function Login() {
-  const {control, handleSubmit, formState, watch} = useForm();
+export default function Login({route: {params}}) {
+  const {control, handleSubmit, watch} = useForm({
+    defaultValues: {
+      username: params?.username,
+      password: params?.password,
+    },
+  });
 
   const passwordRef = useRef();
 
   const onCompleted = data => {
-    const {login} = data;
+    const {
+      login: {ok},
+    } = data;
 
-    if (login.ok === true) {
+    if (ok) {
       isLoggedInVar(true);
     }
   };
