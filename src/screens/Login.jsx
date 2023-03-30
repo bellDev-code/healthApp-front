@@ -2,7 +2,7 @@ import {gql, useMutation} from '@apollo/client';
 import React from 'react';
 import {useRef} from 'react';
 import {Controller, useForm} from 'react-hook-form';
-import {isLoggedInVar} from '../../apollo';
+import {isLoggedInVar, logUserIn} from '../../apollo';
 import AuthButton from '../components/auth/AuthButton';
 import AuthLayOut from '../components/auth/AuthLayOut';
 import {TextInput} from '../components/auth/AuthShared';
@@ -27,13 +27,13 @@ export default function Login({route: {params}}) {
 
   const passwordRef = useRef();
 
-  const onCompleted = data => {
+  const onCompleted = async data => {
     const {
-      login: {ok},
+      login: {ok, token},
     } = data;
 
     if (ok) {
-      isLoggedInVar(true);
+      logUserIn(token);
     }
   };
 
