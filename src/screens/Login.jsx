@@ -33,7 +33,7 @@ export default function Login({route: {params}}) {
     } = data;
 
     if (ok) {
-      logUserIn(token);
+      await logUserIn(token);
     }
   };
 
