@@ -1,10 +1,8 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text} from 'react-native';
+import styled from 'styled-components/native';
+import FeedLayout from '../components/Feed/FeedLayout';
 
 export default function Feed() {
-  return (
-    <View>
-      <Text>Feed Screen</Text>
-    </View>
-  );
+  return <FeedLayout title="Feed"></FeedLayout>;
 }
