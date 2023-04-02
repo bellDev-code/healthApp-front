@@ -1,21 +1,13 @@
 import React from 'react';
+import {Button, View} from 'react-native';
 import styled from 'styled-components/native';
 
 const Container = styled.View`
   flex: 1;
   background-color: black;
-  justify-content: center;
-  align-items: center;
+  padding: 0 20px;
 `;
 
-const Title = styled.Text`
-  color: white;
-`;
-
-export default function FeedLayout({title}) {
-  return (
-    <Container>
-      <Title>{title}</Title>
-    </Container>
-  );
+export default function FeedLayout({children}) {
+  return <Container>{children}</Container>;
 }
