@@ -2,7 +2,7 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Feed from '../screens/Feed';
 import Profile from '../screens/Profile';
-import Calender from '../screens/Calender';
+import Calendars from '../screens/Calendars';
 import TabIcon from '../components/nav/TabIcon';
 
 const Tabs = createBottomTabNavigator();
@@ -35,8 +35,8 @@ export default function LoggedInNav() {
         }}
       />
       <Tabs.Screen
-        name="Calender"
-        component={Calender}
+        name="Calendar"
+        component={Calendars}
         options={{
           tabBarIcon: ({focused, color, size}) => (
             <TabIcon
