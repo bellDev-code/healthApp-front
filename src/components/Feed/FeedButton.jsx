@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {colors, fontWeight} from '../../Theme';
+import {btnColor, colors, fontWeight} from '../../Theme';
 
 const Button = styled.TouchableOpacity`
-  background-color: ${colors.blue};
+  background-color: ${btnColor.feedBtn};
   padding: 10px 10px;
   border-radius: 3px;
-  width: 20%;
+  width: 150px;
 `;
 
 const ButtonText = styled.Text`

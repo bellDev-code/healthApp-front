@@ -7,3 +7,7 @@ export const fontWeight = {
   middle: 600,
   smal: 300,
 };
+
+export const btnColor = {
+  feedBtn: '#37CAEC',
+};

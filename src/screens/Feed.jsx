@@ -1,21 +1,24 @@
 import React, {useState} from 'react';
 import FeedLayout from '../components/feed/FeedLayout';
+import HeaderView from '../components/feed/HeaderView';
 import styled from 'styled-components/native';
-import FeedButton from '../components/feed/FeedButton';
 
-const HeaderView = styled.View`
-  flex: 1;
-  margin-top: 10px;
-  flex-direction: column;
-  align-items: flex-end;
+const ContentsView = styled.View`
+  flex: 1
+  background-color: red;
+`;
+
+const ContentsView2 = styled.View`
+  flex: 1
+  background-color: blue;
 `;
 
 export default function Feed() {
   return (
     <FeedLayout>
-      <HeaderView>
-        <FeedButton text="Register" />
-      </HeaderView>
+      <HeaderView />
+      <ContentsView />
+      <ContentsView2 />
     </FeedLayout>
   );
 }
