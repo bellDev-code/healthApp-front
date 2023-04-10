@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import FeedButton from './FeedButton';
+import RegisterModal from '../modal/RegisterModal';
 
 const Container = styled.View`
-  padding: 10px 0;
+  flex: 1;
   flex-direction: column;
   align-items: flex-end;
 `;
@@ -11,7 +12,7 @@ const Container = styled.View`
 export default function HeaderView() {
   return (
     <Container>
-      <FeedButton text="헬스장 등록하기" />
+      <RegisterModal />
     </Container>
   );
 }
