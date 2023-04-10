@@ -21,7 +21,7 @@ export default function LoggedInNav() {
         },
       }}>
       <Tabs.Screen
-        name="Feed"
+        name="홈"
         component={Feed}
         options={{
           tabBarIcon: ({focused, color, size}) => (
@@ -35,7 +35,7 @@ export default function LoggedInNav() {
         }}
       />
       <Tabs.Screen
-        name="Calendar"
+        name="캘린더"
         component={Calendar}
         options={{
           tabBarIcon: ({focused, color, size}) => (
@@ -49,7 +49,7 @@ export default function LoggedInNav() {
         }}
       />
       <Tabs.Screen
-        name="Profile"
+        name="내 정보"
         component={Profile}
         options={{
           tabBarIcon: ({focused, color, size}) => (
