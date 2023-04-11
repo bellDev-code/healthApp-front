@@ -9,7 +9,7 @@ const CenterView = styled.View`
 `;
 
 export default function RegisterModal() {
-  const [modalVisible, setModalVisible] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
   console.log(modalVisible);
 
   return (

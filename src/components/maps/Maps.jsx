@@ -29,8 +29,6 @@ export default function Maps() {
       style={{width: '100%', height: '100%'}}
       showsMyLocationButton={true}
       center={{...P0, zoom: 16}}
-      onTouch={e => console.warn('onTouch', JSON.stringify(e.nativeEvent))}
-      onCameraChange={e => console.warn('onCameraChange', JSON.stringify(e))}
       onMapClick={handleMapClick}>
       {markers.map((marker, index) => {
         if (!marker) {
