@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Alert, Modal, StyleSheet, Text, Pressable, View} from 'react-native';
 import styled from 'styled-components/native';
+import Maps from '../maps/Maps';
 
 const CenterView = styled.View`
   flex: 1;
@@ -8,44 +9,44 @@ const CenterView = styled.View`
 `;
 
 export default function RegisterModal() {
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(true);
   console.log(modalVisible);
+
   return (
     <CenterView>
+      <Pressable
+        style={[styles.button, styles.modalOpen]}
+        onPress={() => setModalVisible(true)}>
+        {<Text style={styles.textStyle}>헬스장 등록하기</Text>}
+      </Pressable>
+
       <Modal
         animationType="slide"
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
           Alert.alert('Modal has been closed.');
-          setModalVisible(!modalVisible);
+          setModalVisible(false);
         }}>
-        <CenterView>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello World!</Text>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}>
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable>
-          </View>
-        </CenterView>
+        <View style={styles.modalView}>
+          <Maps />
+          <Pressable
+            style={[styles.button, styles.modalClose]}
+            onPress={() => setModalVisible(false)}>
+            <Text style={styles.textStyle}>취소하기</Text>
+          </Pressable>
+        </View>
       </Modal>
-      <Pressable
-        style={[styles.button, styles.buttonOpen]}
-        onPress={() => setModalVisible(true)}>
-        {<Text style={styles.textStyle}>헬스장 등록하기</Text>}
-      </Pressable>
     </CenterView>
   );
 }
 
-// styled-components shadow 관련 알아보기
 const styles = StyleSheet.create({
   modalView: {
     margin: 20,
     backgroundColor: 'white',
     borderRadius: 20,
+    height: '80%',
     padding: 35,
     alignItems: 'center',
     shadowColor: '#000',
@@ -62,19 +63,19 @@ const styles = StyleSheet.create({
     padding: 10,
     elevation: 2,
   },
-  buttonOpen: {
+  modalOpen: {
     backgroundColor: '#37CAEC',
   },
-  buttonClose: {
-    backgroundColor: '#37CAEC',
+  modalClose: {
+    borderRadius: 10,
+    marginTop: 3,
+    padding: 5,
+    elevation: 2,
+    backgroundColor: '37CAEC',
   },
   textStyle: {
     color: 'white',
     fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  modalText: {
-    marginBottom: 15,
     textAlign: 'center',
   },
 });
