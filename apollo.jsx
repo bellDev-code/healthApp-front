@@ -13,6 +13,12 @@ export const logUserIn = async token => {
   tokenVar('token');
 };
 
+export const logUserOut = async () => {
+  await AsyncStorage.multiRemove(['token', 'loggedIn']);
+  isLoggedInVar(false);
+  tokenVar('');
+};
+
 const client = new ApolloClient({
   uri: 'http://10.0.2.2:4000/graphql',
   cache: new InMemoryCache(),
