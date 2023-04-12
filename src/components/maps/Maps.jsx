@@ -1,48 +1,45 @@
 import {useState} from 'react';
 import NaverMapView, {Marker} from 'react-native-nmap';
 
-export default function Maps() {
+export default function Maps({onPositionSelect}) {
   const P0 = {latitude: 37.564362, longitude: 126.977011};
-  const [markers, setMarkers] = useState([]);
+  const [markers, setMarkers] = useState(null);
 
   const handleMapClick = event => {
-    // 클릭한 위치의 좌표
     const clickedLatLng = event;
 
-    // 위도 경도값
-    const lat = event.latitude;
-    const long = event.longitude;
-    console.log(lat, long);
-
-    // 새로운 마커를 추가하여 markers 상태 업데이트
-    setMarkers(prevMarkers => [
-      ...prevMarkers,
-      {
+    if (markers) {
+      setMarkers({
         coordinate: clickedLatLng,
-        title: `Marker ${prevMarkers.length + 1}`,
-      },
-    ]);
+        title: `Marker 1`,
+      });
+    } else {
+      setMarkers({
+        coordinate: clickedLatLng,
+        title: `Marker 1`,
+      });
+    }
+    onPositionSelect(clickedLatLng);
+  };
+
+  const handleMarkerPress = index => {
+    setMarkers(null);
   };
 
   return (
     <NaverMapView
-      style={{width: '100%', height: '100%'}}
+      style={{width: '100%', height: '80%'}}
       showsMyLocationButton={true}
       center={{...P0, zoom: 16}}
       onMapClick={handleMapClick}>
-      {markers.map((marker, index) => {
-        if (!marker) {
-          return null;
-        }
-        return (
-          <Marker
-            key={index}
-            coordinate={marker.coordinate}
-            title={marker.title}
-            pinColor="green"
-          />
-        );
-      })}
+      {markers && (
+        <Marker
+          coordinate={markers.coordinate}
+          title={markers.title}
+          pinColor="green"
+          onPress={() => handleMarkerPress(0)}
+        />
+      )}
     </NaverMapView>
   );
 }
