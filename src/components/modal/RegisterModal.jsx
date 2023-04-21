@@ -37,7 +37,6 @@ export default function RegisterModal() {
   const [position, setPosition] = useState(null);
   const isLoggedIn = useReactiveVar(isLoggedInVar);
   const token = useReactiveVar(tokenVar);
-  console.log(token, 'useToken');
 
   const onPositionSelect = position => {
     setPosition(position);
@@ -45,10 +44,8 @@ export default function RegisterModal() {
 
   const onCompleted = data => {
     const {
-      createPosition: {latitude, longitude},
+      createPosition: {ok},
     } = data;
-
-    console.log(data);
   };
 
   const [createPosition, {loading}] = useMutation(CREATE_POSITION_MUTATION, {
@@ -58,7 +55,7 @@ export default function RegisterModal() {
   const onValid = async () => {
     if (!isLoggedIn) {
       // 로그인되어 있지 않은 경우 처리
-      throw new Error('로그인이 필요필요');
+      throw new Error('로그인이 필요한 기능입니다. 로그인 해주세요.');
       return;
     }
 
@@ -76,8 +73,10 @@ export default function RegisterModal() {
             },
           },
         });
+
+        setModalVisible(false);
       } catch (error) {
-        console.log(error.message);
+        console.log(error.networkError.response);
       }
     }
   };
@@ -86,6 +85,7 @@ export default function RegisterModal() {
     <CenterView>
       <Pressable
         style={[styles.button, styles.modalOpen]}
+        activeOpacity={0.5}
         onPress={() => setModalVisible(true)}>
         {<Text style={styles.textStyle}>헬스장 등록하기</Text>}
       </Pressable>
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     height: 30,
     margin: 5,
     elevation: 2,
-    backgroundColor: '37CAEC',
+    backgroundColor: '#37CAEC',
   },
   textStyle: {
     color: 'white',
