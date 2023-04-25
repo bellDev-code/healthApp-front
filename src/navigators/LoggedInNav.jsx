@@ -4,6 +4,7 @@ import Feed from '../screens/Feed';
 import Profile from '../screens/Profile';
 import Calendar from '../screens/Calendar';
 import TabIcon from '../components/nav/TabIcon';
+import TimePicker from '../screens/TimePicker';
 
 const Tabs = createBottomTabNavigator();
 
@@ -27,6 +28,20 @@ export default function LoggedInNav() {
           tabBarIcon: ({focused, color, size}) => (
             <TabIcon
               iconName={'home'}
+              color={color}
+              size={size}
+              focused={focused}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="알람"
+        component={TimePicker}
+        options={{
+          tabBarIcon: ({focused, color, size}) => (
+            <TabIcon
+              iconName={'md-alarm'}
               color={color}
               size={size}
               focused={focused}
