@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import FeedLayout from '../components/feed/FeedLayout';
-import HeaderView from '../components/feed/HeaderView';
+import FeedLayout from '../components/Feed/FeedLayout';
+import HeaderView from '../components/Feed/HeaderView';
 import styled from 'styled-components/native';
 
 const ContentsView = styled.View`

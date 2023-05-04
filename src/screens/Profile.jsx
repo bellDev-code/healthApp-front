@@ -1,5 +1,5 @@
 import React from 'react';
-import FeedLayout from '../components/feed/FeedLayout';
+import FeedLayout from '../components/Feed/FeedLayout';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {logUserOut} from '../../apollo';
 import styled from 'styled-components/native';
