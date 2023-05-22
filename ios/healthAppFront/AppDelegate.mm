@@ -65,6 +65,8 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 
   [RNBootSplash initWithStoryboard:@"BootSplash" rootView:self.window.rootViewController.view];
 
+  [NMFAuthManager shared].clientId = "zumr48ikh9";
+
   return YES;
 }
 
